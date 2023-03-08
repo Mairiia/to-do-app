@@ -1,0 +1,89 @@
+.Task{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 2px;
+    padding: 10px;
+    word-wrap: break-word;
+    flex-wrap: wrap;
+    font-size: 1em;
+    flex: 1;
+    border-radius: 30px;
+    height: fit-content;
+    overflow-wrap: anywhere;
+    background-color: rgba(11, 24, 42, 0.67);
+    width: 100%;
+    color: rgb(194, 189, 190);
+    font-weight: lighter !important;
+    box-sizing: border-box;
+    transition: background-color 200ms ease-in-out;
+}
+label, p{
+    letter-spacing: normal;
+    text-align: justify;
+    font-size: .8em;
+    margin: 0;
+    padding: 3px;
+}
+.material-symbols-outlined{
+    font-size: 1.3em;
+    margin: 10px;
+    color: #52f891;
+    text-shadow: 0 0 5px rgba(184, 255, 224, 0.9);
+}
+.Task p{
+    text-decoration: line-through;
+}
+input:checked{
+    text-decoration: line-through;
+    text-decoration-thickness: 1px;
+}
+
+input[type="checkbox"] {
+    content: "";
+    color: rgba(87, 86, 86, 0.06);
+    -webkit-appearance: none;
+    min-width: 13px;
+    height: 13px;
+    outline: 0;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0);
+    border: 1px solid rgb(227, 100, 113);;
+    transition: background 300ms;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.TasksList{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+}
+
+.StatBar{
+    width: 50%;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+
+.Completed{
+    background-color: #276955;
+    height: 100%;
+    width: 3%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(21, 3, 3, 0.65);
+    font-weight: 100;
+    font-size: .9em;
+    box-shadow: 1px 1px 20px 3px rgba(11, 248, 60, 0.3);
+}
+
+.Uncompleted{
+    background-color: rgba(93, 52, 64, 0.51);
+    height: 100%;
+    width: 3%;
+}
