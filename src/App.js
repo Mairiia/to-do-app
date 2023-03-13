@@ -2,8 +2,9 @@ import './App.css';
 import axios from "axios";
 import UsersList from "./components/UsersList";
 import TaskList from "./components/TaskList";
-import {useEffect, useState} from "react";
-import {Outlet, useNavigate} from "react-router-dom";
+import React, {useEffect, useState} from "react";
+import {Outlet} from "react-router-dom";
+
 
 const getData = (setState, link) => {
     axios.get(`https://jsonplaceholder.typicode.com/${link}`)
@@ -18,27 +19,15 @@ const getData = (setState, link) => {
 function App() {
     const [usersData, setUsersData] = useState([]);
     const [tasksData, setTasksData] = useState([]);
-    const [taskId, setTaskId] = useState(1);
-    // const navigate = useNavigate();
 
 
     useEffect(() => getData(setTasksData, 'todos'), []);
-    // console.log(tasksData);
 
     useEffect(() => getData(setUsersData, 'users'), []);
-    // console.log(usersData);
 
-    const displayTasks = (user) => {
-        setTaskId(user.id);
-    };
 
     //???
-    // useEffect(() => {
-    //     navigate(`/`);
-    // }, []);
-
-    //???
-    // const setCheckBox = async (taskId) => {
+    // const setTaskCompleted = async (taskId) => {
     //     const response = await axios.post(`https://jsonplaceholder.typicode.com/todos`, {});
     //     if (response) {
     //         setTasksData(
@@ -53,11 +42,10 @@ function App() {
     //             })
     //         )
     //     }
-    //
     // };
 
 
-    const setCheckBox = (taskId) => {
+    const setTaskCompleted = (taskId) => {
         setTasksData(
             tasksData.map(task => {
                 if (task.id === taskId) {
@@ -71,24 +59,17 @@ function App() {
         );
     };
 
+
     return (
         <div className="App">
 
             <div className={'Container'}>
                 <div className={'UsersModule'}>
-                    <UsersList
-                        users={usersData}
-                        change={displayTasks}
-                        taskId={taskId}
-                    />
+                    <UsersList users={usersData}/>
                 </div>
                 <div className={'TasksModule'}>
-                    <TaskList
-                        tasks={tasksData}
-                        taskId={taskId}
-                        setCheckBox={setCheckBox}
-                    >
-                        <Outlet context={[taskId, setTaskId]}/>
+                    <TaskList tasks={tasksData} setTaskCompleted={setTaskCompleted}>
+                        <Outlet/>
                     </TaskList>
                 </div>
             </div>
