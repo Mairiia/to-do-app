@@ -22,6 +22,7 @@ const Task = (props) => {
                     <label htmlFor="">{capitalisedTask}</label>
                 </div>
             }
+
         </>
     )
 };
