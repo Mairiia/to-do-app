@@ -8,12 +8,12 @@ import ErrorPage from "./components/ErrorPage";
 
 const router = createBrowserRouter([
     {
-        path: 'users',
+        path: '/',
         element: <App />,
         errorElement: <ErrorPage />,
         children: [
             {
-                path: ':usersId',
+                path: 'users/:usersId',
                 element: <TaskList />,
                 index: true
             },
