@@ -5,7 +5,7 @@ import {useParams} from "react-router";
 
 const TaskList = ({tasks, setTaskCompleted}) => {
     const {usersId} = useParams();
-    const filteredTasks = tasks.filter(task => task.userId === +(usersId));
+    const filteredTasks = tasks.filter(task => task.userId === (usersId ? +(usersId) : 1));
     const completedPercentage = (100 / filteredTasks.length) * (filteredTasks.filter(task => task.completed === true).length);
 
 

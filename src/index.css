@@ -8,7 +8,6 @@ body {
   height: 100vh;
   background-attachment: fixed;
   overflow: visible !important;
-  /*background-attachment: scroll;*/
 }
 
 #error-page {
